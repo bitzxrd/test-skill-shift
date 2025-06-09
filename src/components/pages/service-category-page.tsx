@@ -5,7 +5,7 @@ import { redirect } from 'next/navigation';
 import React, { useEffect, useState } from 'react'
 import ServiceCard from '@/components/ui/ServiceCard';
 import FilterPanel from './service-category/FilterPanel';
-import BreadcrumbComponent, { BreadcrumbList } from '@/components/ui/BreadcrumbComponent';
+import BreadcrumbComponent, { BreadcrumbListItem } from '@/components/ui/BreadcrumbComponent';
 import { useTranslation } from 'react-i18next';
 
 
@@ -33,7 +33,7 @@ export default function ServiceCategoryPage({ serviceCategoryId }: Props) {
         servicesList = serviceCategory?.items.filter(item => item.subCategory === selectedSubCategory);
     }
 
-    const breadCrumbList: BreadcrumbList[] = [
+    const breadCrumbList: BreadcrumbListItem[] = [
         { link: "/services", name: t("header.directions") },
         { link: `/services/${serviceCategoryId}`, name: t(`header.${serviceCategory!.id}`), lastItem: true }
     ];
